@@ -37,6 +37,5 @@ fetch ("http://localhost:5678/api/works")
 
         gallery.appendChild(newFigure);
 
-
         travaux.push(newFigure);
     }
