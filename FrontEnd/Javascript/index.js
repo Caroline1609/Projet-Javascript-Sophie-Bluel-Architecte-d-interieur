@@ -3,6 +3,7 @@ const portfolio = document.getElementById("portfolio");
 
 let travaux = [];
 let boutons = [];
+let categories = [];
 
 
 
@@ -39,3 +40,26 @@ fetch ("http://localhost:5678/api/works")
 
         travaux.push(newFigure);
     }
+
+    fetch("http://localhost:5678/api/categories")
+        .then((res) => res.json())
+        .then ((data) => {
+
+        const categories = new Set([""]);
+        data.forEach(category => categories.add(category.name));
+
+        function Filters(categories){
+            const filterAll = addEventListene(0, "Tous");
+            filters.push(filterAll);
+
+            for(let category of categories){
+                const filter = createFilterButton(category.id, category.name);
+                filters.push(filter);
+            }
+
+
+        }
+        console.log(categories)
+
+            
+    });
